@@ -51,7 +51,7 @@ The script will prompt you to enter the distance to your destination and the uni
 
 ## Authors
 
-* **YourName** - *Initial work* - [TopChainBoy](https://github.com/TopChainBoy)
+* **TopChainBoy** - *Initial work* - [TopChainBoy](https://github.com/TopChainBoy)
 
 ## License
 
