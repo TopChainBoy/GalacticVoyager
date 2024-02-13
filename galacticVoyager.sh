@@ -14,19 +14,19 @@ if [ "$unit_choice" == "2" ]; then
 fi
 
 # Define an array with the order of keys
-keys=("foot" "skateboard" "bike" "boat" "car" "train" "plane" "fighter jet" "aurora x1" "spacex rocket" "speed of light" "speed of light power of 10" "speed of light power of 1000")
+keys=("foot" "skateboard" "bike" "boat with paddles" "boat with gas engine" "boat with electric engine" "electric car" "scooter" "bus" "train" "plane" "fighter jet" "aurora x1" "spacex rocket" "speed of light" "speed of light power of 10" "speed of light power of 1000")
 
 # Define speeds for each mode of transportation
 declare -A speeds
-speeds=(["foot"]=5 ["skateboard"]=10 ["bike"]=20 ["boat"]=30 ["car"]=100 ["train"]=200 ["plane"]=900 ["fighter jet"]=2200 ["spacex rocket"]=28000 ["aurora x1"]=15000 ["speed of light"]=1079252848.8 ["speed of light power of 10"]=10792528488 ["speed of light power of 1000"]=1079252848800)
+speeds=(["foot"]=5 ["skateboard"]=10 ["bike"]=20 ["boat with paddles"]=2 ["boat with gas engine"]=30 ["boat with electric engine"]=25 ["electric car"]=120 ["scooter"]=15 ["bus"]=60 ["train"]=200 ["plane"]=900 ["fighter jet"]=2200 ["aurora x1"]=15000 ["spacex rocket"]=28000 ["speed of light"]=1079252848.8 ["speed of light power of 10"]=10792528488 ["speed of light power of 1000"]=1079252848800)
 
 # Define CO2 footprint for each mode of transportation in kg/km
 declare -A co2_footprints
-co2_footprints=(["foot"]=0 ["skateboard"]=0 ["bike"]=0 ["boat"]=0.15 ["car"]=0.12 ["train"]=0.04 ["plane"]=0.25 ["fighter jet"]=2 ["aurora x1"]=10 ["spacex rocket"]=20 ["speed of light"]=0 ["speed of light power of 10"]=0 ["speed of light power of 1000"]=0)
+co2_footprints=(["foot"]=0 ["skateboard"]=0 ["bike"]=0 ["boat with paddles"]=0 ["boat with gas engine"]=0.15 ["boat with electric engine"]=0.05 ["electric car"]=0.04 ["scooter"]=0.02 ["bus"]=0.1 ["train"]=0.04 ["plane"]=0.25 ["fighter jet"]=2 ["aurora x1"]=10 ["spacex rocket"]=20 ["speed of light"]=0 ["speed of light power of 10"]=0 ["speed of light power of 1000"]=0)
 
 # Define cost for each mode of transportation in $/km
 declare -A costs
-costs=(["foot"]=0 ["skateboard"]=0.01 ["bike"]=0.02 ["boat"]=0.5 ["car"]=0.1 ["train"]=0.2 ["plane"]=0.15 ["fighter jet"]=100 ["aurora x1"]=10000 ["spacex rocket"]=50000 ["speed of light"]=0 ["speed of light power of 10"]=0 ["speed of light power of 1000"]=0)
+costs=(["foot"]=0 ["skateboard"]=0.01 ["bike"]=0.02 ["boat with paddles"]=0.1 ["boat with gas engine"]=0.5 ["boat with electric engine"]=0.3 ["electric car"]=0.05 ["scooter"]=0.03 ["bus"]=0.1 ["train"]=0.2 ["plane"]=0.15 ["fighter jet"]=100 ["aurora x1"]=10000 ["spacex rocket"]=50000 ["speed of light"]=0 ["speed of light power of 10"]=0 ["speed of light power of 1000"]=0)
 
 # Function to convert time into the desired format
 convert_time() {
