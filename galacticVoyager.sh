@@ -1,12 +1,26 @@
 #!/bin/bash
 
 # Ask the user for the distance to the destination
-echo "Enter the distance to your destination:"
-read distance
+while true; do
+  echo "Enter the distance to your destination:"
+  read distance
+  if [[ $distance =~ ^[0-9]+([.][0-9]+)?$ ]]; then
+    break
+  else
+    echo "Invalid input. Please enter a valid number."
+  fi
+done
 
 # Ask the user for the unit of the distance
-echo "Is the distance in 1) km or 2) miles? (Enter '1' or '2')"
-read unit_choice
+while true; do
+  echo "Is the distance in 1) km or 2) miles? (Enter '1' or '2')"
+  read unit_choice
+  if [[ $unit_choice == "1" || $unit_choice == "2" ]]; then
+    break
+  else
+    echo "Invalid input. Please enter '1' for km or '2' for miles."
+  fi
+done
 
 # Convert the distance to kilometers if it was entered in miles
 if [ "$unit_choice" == "2" ]; then
