@@ -30,6 +30,14 @@ fi
 # Define an array with the order of keys
 keys=("foot" "skateboard" "bike" "boat with paddles" "boat with gas engine" "boat with electric engine" "electric car" "gas car" "scooter" "bus" "train" "plane" "fighter jet" "aurora x1" "spacex rocket" "speed of light" "speed of light power of 10" "speed of light power of 1000")
 
+# Ask the user for the mode of transportation
+echo "Enter the mode of transportation (or 'all' for all modes):"
+read mode_choice
+if [[ $mode_choice != "all" && ! " ${keys[@]} " =~ " ${mode_choice} " ]]; then
+  echo "Invalid input. Please enter a valid mode of transportation."
+  exit 1
+fi
+
 # Define speeds for each mode of transportation
 declare -A speeds
 speeds=(["foot"]=5 ["skateboard"]=10 ["bike"]=20 ["boat with paddles"]=2 ["boat with gas engine"]=30 ["boat with electric engine"]=25 ["electric car"]=120 ["gas car"]=100 ["scooter"]=15 ["bus"]=60 ["train"]=200 ["plane"]=900 ["fighter jet"]=2200 ["aurora x1"]=15000 ["spacex rocket"]=28000 ["speed of light"]=1079252848.8 ["speed of light power of 10"]=10792528488 ["speed of light power of 1000"]=1079252848800)
