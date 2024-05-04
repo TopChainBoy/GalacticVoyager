@@ -1,10 +1,11 @@
 #!/bin/bash
+#!/bin/bash
 
-# Ask the user for the distance to the destination
+# Ask the user for their current balance
 while true; do
-  echo "Enter the distance to your destination:"
-  read distance
-  if [[ $distance =~ ^[0-9]+([.][0-9]+)?$ ]] && (( $(echo "$distance > 0" | bc -l) )); then
+  echo "Enter your current balance in dollars:"
+  read balance
+  if [[ $balance =~ ^[0-9]+([.][0-9]+)?$ ]] && (( $(echo "$balance >= 0" | bc -l) )); then
     break
   else
     echo "Invalid input. Please enter a valid positive number."
@@ -98,6 +99,11 @@ for mode in "${keys[@]}"; do
   fi
   echo -e "CO2 footprint: \033[1;31m$co2 kg\033[0m"
   echo -e "Cost: \033[1;35m$cost dollars\033[0m"
+  # Check if the user has enough balance to afford the cost
+  if (( $(echo "$balance < $cost" | bc -l) )); then
+    echo -e "\033[1;31mYou do not have enough balance to afford this mode of transportation.\033[0m"
+    continue
+  fi
   echo
 done
 echo "Note: Costs include energy, gas and food."
