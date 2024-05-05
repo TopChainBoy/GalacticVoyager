@@ -1,11 +1,21 @@
 #!/bin/bash
-#!/bin/bash
 
 # Ask the user for their current balance
 while true; do
   echo "Enter your current balance in dollars:"
   read balance
   if [[ $balance =~ ^[0-9]+([.][0-9]+)?$ ]] && (( $(echo "$balance >= 0" | bc -l) )); then
+    break
+  else
+    echo "Invalid input. Please enter a valid positive number."
+  fi
+done
+
+# Ask the user for the distance they want to travel
+while true; do
+  echo "Enter the distance you want to travel:"
+  read distance
+  if [[ $distance =~ ^[0-9]+([.][0-9]+)?$ ]] && (( $(echo "$distance > 0" | bc -l) )); then
     break
   else
     echo "Invalid input. Please enter a valid positive number."
